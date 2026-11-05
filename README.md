@@ -10,7 +10,6 @@
 - SQL Data Analysis (MySQL)
 - Exploratory Data Analysis (EDA)
 - Inventory Analysis
-- Chat GPT
 
 ## Summary
 Evaluated the feasibility of closing one warehouse by **analyzing inventory levels, product demand, warehouse capacity, customer demand, and fulfillment performance.** The analysis identified **Warehouse C as the strongest closure candidate**, while highlighting the inventory reduction and redistribution required to maintain operational capacity and customer service.
