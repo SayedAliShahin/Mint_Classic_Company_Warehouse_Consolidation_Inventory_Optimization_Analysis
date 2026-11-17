@@ -24,7 +24,7 @@ Key relationships:
 
 **Data validation:** All tables were checked for missing values, duplicates, orphaned keys, and logical inconsistencies (for example, `requiredDate` or `shippedDate` earlier than `orderDate`, zero or negative quantities and prices). No serious issues were found. Missing values in `customers` (state, postal code, sales rep, credit limit) and the 14 missing `shippedDate` values in `orders` (cancelled, on-hold, or in-progress orders) are expected and do not affect the analysis.
 
-> **[TO COMPLETE: insert the ER diagram image of the `mintclassics` schema (export from MySQL Workbench: Database > Reverse Engineer) and save it in the repo, e.g. `images/er_diagram.png`]**
+> **[`ER Diagram.png`]**
 
 ## Skills & Tools
 - SQL Data Analysis (MySQL): CTEs, window functions, conditional aggregation, `CASE` classification, multi-table joins
