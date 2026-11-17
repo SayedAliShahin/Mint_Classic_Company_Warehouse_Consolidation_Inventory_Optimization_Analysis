@@ -24,3 +24,5 @@ Finally, products currently assigned to Warehouse C serve customers across multi
 
 ## Approach 
 Firstly, the warehouse capacity and inventory distribution were analyzed to identify inefficiently utilized facilities. Then inventory levels compared to 29 months of average product demand to identify understocked, reasonable, and overstocked products. Continued to evaluated Warehouse C's inventory composition, excess-stock reduction opportunities, product demand, and customer geography. then, tested whether the remaining warehouses could absorb its inventory individually or collectively. Finally, identified customers in different geographical locations who served by warehouse C to evaluate if the Mint Classic Company can serve their warehouse C respected customers using other warehouses after closure.
+
+## Project Assumptions & Limitations
