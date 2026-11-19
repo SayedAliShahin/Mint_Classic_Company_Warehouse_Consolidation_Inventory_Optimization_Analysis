@@ -14,7 +14,7 @@ Key relationships:
 - Orders connect to products through `orderdetails` table.
 - Orders connect to customers through `orders.customerNumber`.
 
-*Figure 1: Mint Classics database schema*
+*Mint Classics database schema*
 ![ER Diagram](ER_Diagram.png)
 
 
@@ -32,7 +32,7 @@ Evaluated the feasibility of closing one warehouse by **analyzing warehouse inve
 
 All 76 customers associated with Warehouse D also have an association with at least one other warehouse, and a preliminary redistribution scenario places all 79,380 units across A, B, and C. A stock-coverage and demand-trend screening shows that **every Warehouse D product has more than 15 months of estimated coverage**, which suggests inventory could be reduced before any transfer.
 
-**Conclusion:** Closing Warehouse D appears conditionally feasible. Its inventory can be absorbed by Warehouses A, B and C with increases of about 16% to 19% each, and every associated customer also has an association with another warehouse. However, receiving-warehouse capacity cannot be confirmed because warehousePctCap is undocumented, and the 24-hour shipping service cannot be verified from the data, so both must be validated before a closure decision.
+**Closing Warehouse D appears conditionally feasible.** Its inventory can be absorbed by Warehouses A, B and C with increases of about 16% to 19% each, and every associated customer also has an association with another warehouse. However, receiving-warehouse capacity cannot be confirmed because warehousePctCap is undocumented, and the 24-hour shipping service cannot be verified from the data, so both must be validated before a closure decision.
 
 ## Solution
 First of all, **Warehouse D was selected for assessment** based on the initial warehouse comparison:
@@ -88,9 +88,9 @@ Finally, at the order level, about **92% of all orders are shipped and the overa
 
 ## Recommendations
 **Recommendation: Do not close Warehouse D yet. Proceed to a validation phase first, with these steps:**
-- Sell down or stop reordering the High Priority products (Mercedes Tour Bus, Collectable Wooden Train, Titanic, 1926 Ford Fire Engine), which hold 18,682 units, about 24% of Warehouse D’s stock. This reduces what has to move.
-- Confirm the physical capacity of Warehouses A, B and C (the reported percentages are undocumented) and check that the 1:18 scale concentration in B can be handled.
-- Check fulfillment records to confirm which warehouse actually ships Warehouse D customers’ orders and that the 24-hour service holds.
+1. **Sell down or stop reordering the High Priority products** (Mercedes Tour Bus, Collectable Wooden Train, Titanic, 1926 Ford Fire Engine), which hold 18,682 units, about 24% of Warehouse D’s stock. This reduces what has to move.
+2. **Confirm the physical capacity of Warehouses A, B and C** (the reported percentages are undocumented) and check that the 1:18 scale concentration in B can be handled.
+3. **Check fulfillment records to confirm which warehouse actually ships Warehouse D customers’** orders and that the 24-hour service holds.
 
 **Why not close now:** capacity and fulfillment are the two things this database cannot prove and decide whether the move is safe.
 
