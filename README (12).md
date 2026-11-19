@@ -7,32 +7,25 @@
 The goal is to run a structured inventory analysis, evaluate possible operational risks and to porpose recommendatins supported by data.
 
 ## Data Overview
-The analysis uses the `mintclassics` MySQL database. The main tables are:
-
-| Table | Key columns used | Purpose in the analysis |
-|---|---|---|
-| `warehouses` | warehouseCode, warehousePctCap | Reported capacity utilization per warehouse |
-| `products` | productCode, productName, productScale, quantityInStock, warehouseCode, buyPrice | Product-to-warehouse assignment, current stock, cost value |
-| `orderdetails` | orderNumber, productCode, quantityOrdered, priceEach | Quantities sold, revenue, gross profit |
-| `orders` | orderNumber, customerNumber, status, orderDate, requiredDate, shippedDate | Demand period, order status, shipping dates |
-| `customers` | customerNumber, customerName, country, state | Customer and regional associations |
+The analysis uses the `mintclassics` MySQL database. The key tables used in this analysis: **`warehouses` | `products` | `orderdetails` | `orders` | `customers`**
 
 Key relationships:
-- Products are assigned to warehouses through `products.warehouseCode` (verified as a one-to-one product-to-warehouse relationship).
-- Orders connect to products through `orderdetails`.
+- Products are assigned to warehouses through `products.warehouseCode`.
+- Orders connect to products through `orderdetails` table.
 - Orders connect to customers through `orders.customerNumber`.
+
+*Figure 1: Mint Classics database schema*
+![ER Diagram](ER_Diagram.png)
+
 
 **Data validation:** All tables were checked for missing values, duplicates, orphaned keys, and logical inconsistencies (for example, `requiredDate` or `shippedDate` earlier than `orderDate`, zero or negative quantities and prices). No serious issues were found. Missing values in `customers` (state, postal code, sales rep, credit limit) and the 14 missing `shippedDate` values in `orders` (cancelled, on-hold, or in-progress orders) are expected and do not affect the analysis.
 
-![ER Diagram](ER Diagram.png)
-
 
 ## Skills & Tools
-- SQL Data Analysis (MySQL): CTEs, window functions, conditional aggregation, `CASE` classification, multi-table joins
+- MySQL: CTEs, window functions, conditional aggregation, `CASE` classification, multi-table joins
 - Data Cleaning and Validation
 - Exploratory Data Analysis (EDA)
 - Inventory Analysis (stock coverage, demand trend, risk classification)
-- Scenario Analysis (inventory redistribution)
 
 ## Summary
 Evaluated the feasibility of closing one warehouse by **analyzing warehouse inventory, profit contribution, reported capacity, customer associations, product demand, and order status.** **Warehouse D was selected as the closure candidate to assess** because it holds the fewest products, the lowest inventory units, the lowest inventory value, and the lowest profit contribution. However, it also reports the **highest capacity utilization (75%)**, so the assessment focuses on whether its inventory can be reduced and redistributed to Warehouses A, B, and C.
@@ -48,7 +41,10 @@ First of all, **Warehouse D was selected for assessment** based on the initial w
 |---|---:|---:|---:|---:|
 | Products | 25 | 38 | 24 | 23 |
 | Inventory units | 131,688 | 219,183 | 124,880 | 79,380 |
-| Inventory value (buy cost) | 6,664,996.94 | 14,059,337.71 | 5,704,259.82 | 4,105,721.76 |
+| Total Orders | 116 | 209 | 187 | 145|
+| Total Revenue | 2076063.66 | 3853922.49 | 1797559.63 | 1876644.83|
+| Gross Profit | 835216.01 | 1526212.20 | 737268.33 | 727183.71 |
+| Profit Share % | 21.83 | 39.89 | 19.27 | 19.01|
 | Reported capacity utilization (%) | 72 | 67 | 50 | 75 |
 | Reported remaining capacity (%) | 28 | 33 | 50 | 25 |
 
