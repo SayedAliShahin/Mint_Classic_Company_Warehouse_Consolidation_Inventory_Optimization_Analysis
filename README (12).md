@@ -4,10 +4,10 @@
 
 > **Can Mint Classics close Warehouse D and redistribute its inventory across Warehouses A, B, and C without significantly affecting inventory availability, customer coverage, or order-shipping performance?**
 
-The goal is not only to write SQL queries, but to run a structured business analysis, evaluate operational risks, and build a defensible recommendation supported by data.
+The goal is to run a structured inventory analysis, evaluate possible operational risks and to porpose recommendatins supported by data.
 
 ## Data Overview
-The analysis uses the `mintclassics` (Classic Models) MySQL database. The main tables are:
+The analysis uses the `mintclassics` MySQL database. The main tables are:
 
 | Table | Key columns used | Purpose in the analysis |
 |---|---|---|
@@ -24,7 +24,7 @@ Key relationships:
 
 **Data validation:** All tables were checked for missing values, duplicates, orphaned keys, and logical inconsistencies (for example, `requiredDate` or `shippedDate` earlier than `orderDate`, zero or negative quantities and prices). No serious issues were found. Missing values in `customers` (state, postal code, sales rep, credit limit) and the 14 missing `shippedDate` values in `orders` (cancelled, on-hold, or in-progress orders) are expected and do not affect the analysis.
 
-> **[`ER Diagram.png`]**
+![ER Diagram](images/ ER Diagram.png)
 
 ## Skills & Tools
 - SQL Data Analysis (MySQL): CTEs, window functions, conditional aggregation, `CASE` classification, multi-table joins
