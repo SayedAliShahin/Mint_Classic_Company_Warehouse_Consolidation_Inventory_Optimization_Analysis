@@ -41,16 +41,16 @@ First of all, **Warehouse D was selected for assessment** based on the initial w
 |---|---:|---:|---:|---:|
 | Products | 25 | 38 | 24 | 23 |
 | Inventory units | 131,688 | 219,183 | 124,880 | 79,380 |
-| Total Orders | 116 | 209 | 187 | 145|
+| Total Orders | 116 | 209 | 187 | 145 |
 | Total Revenue | 2076063.66 | 3853922.49 | 1797559.63 | 1876644.83|
 | Gross Profit | 835216.01 | 1526212.20 | 737268.33 | 727183.71 |
 | Profit Share % | 21.83 | 39.89 | 19.27 | 19.01|
 | Reported capacity utilization (%) | 72 | 67 | 50 | 75 |
 | Reported remaining capacity (%) | 28 | 33 | 50 | 25 |
 
-Warehouse D has the smallest footprint in products, units, and value (and the lowest gross profit, about 727,183 or 19.1% of the total), but **the highest reported utilization**, which makes capacity feasibility the main concern. Because `warehousePctCap` is undocumented, any conversion of it into unit capacity is an assumption, not confirmed physical capacity.
+Warehouse D has the smallest number of products, units and profit share of the business, but **the highest reported utilization**, which makes capacity feasibility the main concern. Because `warehousePctCap` is undocumented, any conversion of it into unit capacity is an assumption, not confirmed physical capacity.
 
-On the customer side, **76 customers were associated with products assigned to Warehouse D, and all 76 also had an association with at least one other warehouse** (56 with A, B, C and D; 15 with B, C and D; 3 with A, B and D; 2 with A, C and D). This suggests alternative warehouse associations exist, but it does not prove that other warehouses physically fulfilled those orders or could maintain the same service level after closure.
+On the customer side, **76 customers were associated with products assigned to Warehouse D, and all 76 also had an association with at least one other warehouse** which suggests alternative warehouse associations exist.
 
 A **preliminary product-scale-based relocation scenario** allocates all of Warehouse D's 79,380 units:
 
