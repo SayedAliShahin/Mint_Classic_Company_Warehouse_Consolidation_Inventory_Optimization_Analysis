@@ -24,8 +24,8 @@ Key relationships:
 
 **Data validation:** All tables were checked for missing values, duplicates, orphaned keys, and logical inconsistencies (for example, `requiredDate` or `shippedDate` earlier than `orderDate`, zero or negative quantities and prices). No serious issues were found. Missing values in `customers` (state, postal code, sales rep, credit limit) and the 14 missing `shippedDate` values in `orders` (cancelled, on-hold, or in-progress orders) are expected and do not affect the analysis.
 
-![ER Diagram](images/ ER iagram.png)
-*Figure 1: Mint Classics database schema*
+![ER Diagram](ER Diagram.png)
+
 
 ## Skills & Tools
 - SQL Data Analysis (MySQL): CTEs, window functions, conditional aggregation, `CASE` classification, multi-table joins
