@@ -4,7 +4,7 @@
 
 > **Can Mint Classics close Warehouse D and redistribute its inventory across Warehouses A, B, and C without significantly affecting inventory availability, customer coverage, or order-shipping performance?**
 
-The goal is to run a structured inventory analysis, evaluate possible operational risks and to porpose recommendatins supported by data.
+The goal is to run a structured inventory analysis, evaluate possible operational risks and to porpose recommendations supported by data.
 
 ## Data Overview
 The analysis uses the `mintclassics` MySQL database. The key tables used in this analysis: **`warehouses` | `products` | `orderdetails` | `orders` | `customers`**
@@ -32,7 +32,7 @@ Evaluated the feasibility of closing one warehouse by **analyzing warehouse inve
 
 All 76 customers associated with Warehouse D also have an association with at least one other warehouse, and a preliminary redistribution scenario places all 79,380 units across A, B, and C. A stock-coverage and demand-trend screening shows that **every Warehouse D product has more than 15 months of estimated coverage**, which suggests inventory could be reduced before any transfer.
 
-> **[TO COMPLETE: one-sentence final verdict on closing Warehouse D (supported / conditionally feasible / not sufficiently supported), plus the 1 or 2 main conditions or risks behind it. Write this after the items in the Solution section are done]**
+**Conclusion:** Closing Warehouse D appears conditionally feasible. Its inventory can be absorbed by Warehouses A, B and C with increases of about 16% to 19% each, and every associated customer also has an association with another warehouse. However, receiving-warehouse capacity cannot be confirmed because warehousePctCap is undocumented, and the 24-hour shipping service cannot be verified from the data, so both must be validated before a closure decision.
 
 ## Solution
 First of all, **Warehouse D was selected for assessment** based on the initial warehouse comparison:
@@ -84,6 +84,10 @@ The four High Priority products are the **Mercedes Tour Bus, Collectable Wooden 
 Finally, at the order level, about **92% of all orders are shipped and the overall cancellation rate is only about 2%.** Products assigned to Warehouse D show the highest cancellation rate among the four warehouses (around 3%), which is still small overall.
 
 > **[TO COMPLETE: (1) shipment trend of Warehouse D-assigned products over time and the main countries/regions they serve, from your regional query; (2) final recommendation; (3) the extra data management would need before closing, e.g. confirmed physical capacity, order-level fulfillment records, inventory planning parameters]**
+
+
+## Recommendations
+
 
 ## Approach
 Firstly, all tables were cleaned and validated, followed by an exploratory analysis of warehouse inventory, profit contribution, and reported capacity to identify the least-used warehouse. **Warehouse D was selected as the closure candidate based on its lowest product count, inventory units and profit contribution,** while noting that its reported utilization is the highest. **Then customers and regions associated with Warehouse D were compared with the other warehouses to see whether alternative warehouse associations exist**. Continued by building a preliminary **inventory redistribution scenario based on product scale and calculating the inventory increase of each receiving warehouse**. Then, Warehouse D's products were **evaluated for potential overstock using stock coverage** (current stock divided by average monthly shipped demand over 29 calendar months, shipped orders only) and **demand trend** (average monthly demand in the first 12 months versus the recent period, 2004-01-06 to 2005-05-31). Finally, a **`CASE`-based risk classification combined both indicators, to identify which products should be considered for sell-down, reduced purchasing, or transfer before any closure.**
