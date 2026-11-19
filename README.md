@@ -87,7 +87,14 @@ Finally, at the order level, about **92% of all orders are shipped and the overa
 
 
 ## Recommendations
+**Recommendation: Do not close Warehouse D yet. Proceed to a validation phase first, with these steps:**
+- Sell down or stop reordering the High Priority products (Mercedes Tour Bus, Collectable Wooden Train, Titanic, 1926 Ford Fire Engine), which hold 18,682 units, about 24% of Warehouse D’s stock. This reduces what has to move.
+- Confirm the physical capacity of Warehouses A, B and C (the reported percentages are undocumented) and check that the 1:18 scale concentration in B can be handled.
+- Check fulfillment records to confirm which warehouse actually ships Warehouse D customers’ orders and that the 24-hour service holds.
 
+**Why not close now:** capacity and fulfillment are the two things this database cannot prove and decide whether the move is safe.
+
+> **Also note:** the case for D over C is narrow (profit share 19.01% vs 19.27%). D was preferred because it has less inventory to relocate, but C remains a close alternative if physical capacity checks favor it.
 
 ## Approach
 Firstly, all tables were cleaned and validated, followed by an exploratory analysis of warehouse inventory, profit contribution, and reported capacity to identify the least-used warehouse. **Warehouse D was selected as the closure candidate based on its lowest product count, inventory units and profit contribution,** while noting that its reported utilization is the highest. **Then customers and regions associated with Warehouse D were compared with the other warehouses to see whether alternative warehouse associations exist**. Continued by building a preliminary **inventory redistribution scenario based on product scale and calculating the inventory increase of each receiving warehouse**. Then, Warehouse D's products were **evaluated for potential overstock using stock coverage** (current stock divided by average monthly shipped demand over 29 calendar months, shipped orders only) and **demand trend** (average monthly demand in the first 12 months versus the recent period, 2004-01-06 to 2005-05-31). Finally, a **`CASE`-based risk classification combined both indicators, to identify which products should be considered for sell-down, reduced purchasing, or transfer before any closure.**
